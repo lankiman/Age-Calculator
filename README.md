@@ -35,8 +35,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: (https://www.github.com/lankiman/Age-Calculator)
-- Live Site URL: (https://your-live-site-url.com)
+- Solution URL: https://www.github.com/lankiman/Age-Calculator
+- Live Site URL: https://age-calculator-lime.vercel.app/
 
 ## My process
 

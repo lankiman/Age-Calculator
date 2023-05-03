@@ -131,15 +131,13 @@ function animateAgeResults() {
   const monthResult = document.getElementById("js-mth-animation");
   const dayResult = document.getElementById("js-day-animation");
 
-  // Animate year result
   setTimeout(() => {
-    yearResult.classList.add("animate__zoomInDown");
+    yearResult.classList.add("animate__lightSpeedInLeft");
     setTimeout(() => {
-      yearResult.classList.remove("animate__zoomInDown");
+      yearResult.classList.remove("animate__lightSpeedInLeft");
     }, 1000);
   }, 0);
 
-  // Animate month result after 1 second delay
   setTimeout(() => {
     monthResult.classList.add("animate__lightSpeedInLeft");
     setTimeout(() => {
@@ -147,20 +145,20 @@ function animateAgeResults() {
     }, 1000);
   }, 500);
 
-  // Animate day result after 2 second delay
   setTimeout(() => {
-    dayResult.classList.add("animate__zoomInUp");
+    dayResult.classList.add("animate__lightSpeedInLeft");
     setTimeout(() => {
-      dayResult.classList.remove("animate__zoomInUp");
+      dayResult.classList.remove("animate__lightSpeedInLeft");
     }, 1000);
   }, 1000);
+
   const ageResults = document.querySelectorAll(".age-result");
   setTimeout(() => {
     ageResults.forEach(result => {
-      result.classList.add("animate__heartBeat");
+      result.classList.add("animate__shakeY");
       setTimeout(() => {
-        result.classList.remove("animate__heartBeat");
-      }, 500);
+        result.classList.remove("animate__shakeY");
+      }, 1000);
     });
   }, 2000);
 }
