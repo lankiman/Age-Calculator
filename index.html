@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="src/assests/images/favicon-32x32.png"
+    />
+    <head>
+      ...
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      />
+      ...
+    </head>
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="overflow-hidden font-custom">
+    <main class="flex justify-center h-screen items-center bg-Offwhite">
+      <div
+        class="bg-white h-[50%] w-[80%] md:w-[40%] overflow-hidden rounded-2xl rounded-br-[9rem]"
+      >
+        <div class="max-w-full p-4 pt-8">
+          <div
+            class="flex gap-2 justify-evenly md:justify-between md:w-[70%] md:gap-4"
+          >
+            <div>
+              <p
+                class="text-[0.8rem] text-Smokeygrey tracking-[5px] font-bold"
+                id="js-day-heading"
+              >
+                DAY
+              </p>
+              <input
+                placeholder="DD"
+                id="js-day-input"
+                type="number"
+                onkeydown="return event.keyCode !== 69"
+                class="sm:text-lg font-bold md:text-2xl border focus:border-Smokeygrey outline-none my-2 px-2 w-20 h-10 rounded-[0.5rem] md:w-28 md:h-14"
+              />
+              <p
+                class="text-[8px] md:text-[12px] text-Lightred"
+                id="js-day-error-message"
+              ></p>
+              <p
+                class="text-[8px] md:text-[12px] text-Lightred"
+                id="js-date-error-message"
+              ></p>
+            </div>
+            <div>
+              <p
+                class="text-[0.8rem] text-Smokeygrey tracking-[5px] font-bold"
+                id="js-month-heading"
+              >
+                MONTH
+              </p>
+              <input
+                placeholder="MM"
+                id="js-month-input"
+                type="number"
+                onkeydown="return event.keyCode !== 69"
+                class="sm:text-lg md:text-2xl font-bold border focus:border-Smokeygrey outline-none px-2 my-2 w-20 h-10 rounded-[0.5rem] md:w-28 md:h-14"
+              />
+              <p
+                class="text-[8px] md:text-[12px] text-Lightred"
+                id="js-month-error-message"
+              ></p>
+            </div>
+            <div>
+              <p
+                class="text-[0.8rem] text-Smokeygrey tracking-[5px] font-bold"
+                id="js-year-heading"
+              >
+                YEAR
+              </p>
+              <input
+                placeholder="YYYY"
+                id="js-year-input"
+                type="number"
+                onkeydown="return event.keyCode !== 69"
+                class="sm:text-lg font-bold md:text-2xl border focus:border-Smokeygrey outline-none px-2 w-20 my-2 h-10 rounded-[0.5rem] md:w-28 md:h-14"
+              />
+              <p
+                class="text-[8px] md:text-[12px] text-Lightred"
+                id="js-year-error-message"
+              ></p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex flex-col w-full p-4 relative h-20 md:h-1 justify-center md:block md:flex-row md:w-[95s%]"
+        >
+          <hr class="border-1 border-Lightgrey md:w-[90%]" />
+          <button
+            id="js-submit-button"
+            class="bg-Purple absolute left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2 hover:bg-Offblack px-4 py-4 rounded-[50%] w-fit flex items-center md:left-[90%]"
+          >
+            <img src="./src/assests/images/icon-arrow.svg" class="w-7 h-6" />
+          </button>
+        </div>
+        <div class="p-4">
+          <p
+            id="js-yrs-animation"
+            class="text-5xl animate__animated age-result font-extrabold"
+          >
+            <span id="js-years" class="text-Purple mr-2">--</span>years
+          </p>
+          <p
+            id="js-mth-animation"
+            class="text-5xl font-extrabold age-result animate__animated"
+          >
+            <span id="js-months" class="text-Purple mr-2">--</span>months
+          </p>
+          <p
+            id="js-day-animation"
+            class="text-5xl font-extrabold age-result animate__animated"
+          >
+            <span id="js-days" class="text-Purple mr-2">--</span>days
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="text-center">
+      <p>
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by
+        <a href="https://github.com/lankiman" target="_blank">Lankiman </a>.
+      </p>
+    </footer>
+    <script type="text/javascript" src="./src/script.js"></script>
+  </body>
+</html>

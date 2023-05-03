@@ -1,0 +1,146 @@
+function resultErrordisp() {
+  dayInput.classList.add("border-Lightred");
+  dayHeading.classList.replace("text-Smokeygrey", "text-Lightred");
+  dayErrorMessage.textContent = "Must be a valid date";
+  mthInput.classList.add("border-Lightred");
+  mthHeading.classList.replace("text-Smokeygrey", "text-Lightred");
+  yrHeading.classList.replace("text-Smokeygrey", "text-Lightred");
+  yrInput.classList.add("border-Lightred");
+  resultReset();
+}
+
+function resultErrordispReset() {
+  dayHeading.classList.replace("text-Lightred", "text-Smokeygrey");
+  dayInput.classList.remove("border-Lightred");
+  dayErrorMessage.textContent = "";
+  mthHeading.classList.replace("text-Lightred", "text-Smokeygrey");
+  mthInput.classList.remove("border-Lightred");
+  yrHeading.classList.replace("text-Lightred", "text-Smokeygrey");
+  yrInput.classList.remove("border-Lightred");
+}
+function dayErrordisp() {
+  dayInput.classList.add("border-Lightred");
+  dayHeading.classList.replace("text-Smokeygrey", "text-Lightred");
+  if (!days >= 1 && days <= 31) {
+    dayErrorMessage.textContent = "Must be a valid day";
+  } else {
+    dayErrorMessage.textContent = "Field is Required";
+  }
+}
+
+function dayErrordispReset() {
+  dayHeading.classList.replace("text-Lightred", "text-Smokeygrey");
+  dayInput.classList.remove("border-Lightred");
+  dayErrorMessage.textContent = "";
+}
+function mthErrodisp() {
+  mthInput.classList.add("border-Lightred");
+  mthHeading.classList.replace("text-Smokeygrey", "text-Lightred");
+  if (!mth >= 1 && mth <= 12) {
+    mthErrorMessage.textContent = "Must be a valid month";
+  } else {
+    mthErrorMessage.textContent = "Field is Required";
+  }
+}
+function checker() {
+  if (months == "" || days == "" || years == "") {
+    ageCalculationChecker = -2;
+  }
+}
+function mthErrodispReset() {
+  mthHeading.classList.replace("text-Lightred", "text-Smokeygrey");
+  mthInput.classList.remove("border-Lightred");
+
+  mthErrorMessage.textContent = "";
+}
+function yrErrorDisp() {
+  yrHeading.classList.replace("text-Smokeygrey", "text-Lightred");
+  yrInput.classList.add("border-Lightred");
+  if (years < currentYear) {
+    yrErrorMessage.textContent = "Must be in the past";
+  } else {
+    yrErrorMessage.textContent = "Field is Required";
+  }
+}
+function yrErrorDispReset() {
+  yrHeading.classList.replace("text-Lightred", "text-Smokeygrey");
+  yrInput.classList.remove("border-Lightred");
+  yrErrorMessage.textContent = "";
+}
+//configuring submit button to calculate age
+submitButton.addEventListener("click", function() {
+  checker();
+  const day = dayInput.value;
+  const mth = mthInput.value;
+  const yr = yrInput.value;
+
+  //   days = day;
+  //   dayHeading.classList.replace("text-Lightred", "text-Smokeygrey");
+  //   dayInput.classList.remove("border-Lightred");
+  //   dayErrorMessage.textContent = "";
+  //   ageCalculationChecker = 0;
+  // } else {
+  //   dayInput.classList.add("border-Lightred");
+  //   dayHeading.classList.replace("text-Smokeygrey", "text-Lightred");
+  //   dayErrorMessage.textContent = "Must be a valid day";
+  //   resultReset();
+  //   ageCalculationChecker = -1;
+  // }
+  // if (mth >= 1 && mth <= 12) {
+  //   months = mth;
+  //   mthHeading.classList.replace("text-Lightred", "text-Smokeygrey");
+  //   mthInput.classList.remove("border-Lightred");
+  //   mthErrorMessage.textContent = "";
+  //   ageCalculationChecker = 0;
+  // } else {
+  //   mthInput.classList.add("border-Lightred");
+  //   mthHeading.classList.replace("text-Smokeygrey", "text-Lightred");
+  //   mthErrorMessage.textContent = "Must be a valid month";
+  //   ageCalculationChecker = -1;
+  //   resultReset();
+  // }
+  // if (yr < currentYear) {
+  //   years = yr;
+  //   yrHeading.classList.replace("text-Lightred", "text-Smokeygrey");
+  //   yrInput.classList.remove("border-Lightred");
+  //   yrErrorMessage.textContent = "";
+  //   ageCalculationChecker = 0;
+  // } else {
+  //   yrHeading.classList.replace("text-Smokeygrey", "text-Lightred");
+  //   yrInput.classList.add("border-Lightred");
+  //   yrErrorMessage.textContent = "Must be in the past";
+  //   resultReset();
+  //   ageCalculationChecker = -1;
+  // }
+
+  dayInput.value = "";
+  mthInput.value = "";
+  yrInput.value = "";
+  //   if (days == 29 && months == 2 && !isLeapYear(years)) {
+  //     ageCalculationChecker = -1;
+  //   }
+  //   if ((months == 2 || 4 || 6 || 9 || 11) && days == 31) {
+  //     ageCalculationChecker = -1;
+  //   }
+  if (ageCalculationChecker == -1) {
+    console.log("parameters not valid for calculation");
+    resultErrordisp();
+  } else if (ageCalculationChecker == -2) {
+    dayInput.classList.add("border-Lightred");
+    dayHeading.classList.replace("text-Smokeygrey", "text-Lightred");
+    console.log("parameters not valid for calculation");
+    if (!days >= 1 && !days <= 31 && days != "") {
+      dayErrorMessage.textContent = "Must be a valid day";
+    } else if (days >= 1 && days <= 31 && days == "") {
+      dayErrorMessage.textContent = "Field is Required";
+    }
+    // mthErrodisp();
+    // yrErrorDisp();
+  } else if (ageCalculationChecker == 0) {
+    const age = calculateAge(years, months, days);
+    resultErrordispReset();
+    dayResult.textContent = age.days;
+    mthResult.textContent = age.months;
+    yrResult.textContent = age.years;
+  }
+});
